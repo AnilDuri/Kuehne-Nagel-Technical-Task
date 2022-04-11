@@ -6,13 +6,12 @@ import ProfileTabs from "./components/Tabs";
 import TagFilter from "./components/TagFilter";
 import Title from "./components/Title";
 
-import { Products } from './data/Products';
 import { ProductsContext } from "./store/productsContext";
 
 
 function App() {
   const productsCtx = useContext(ProductsContext);
-  const [filteredProducts, setFilteredProducts] = useState(productsCtx.products.filteredProducts);
+  const [filteredProducts ] = useState(productsCtx.products.filteredProducts);
   const [showProductDetail, setShowProductDetail] = useState(false);
 
   function showDetail(product) {
@@ -28,7 +27,7 @@ function App() {
         <div className="p-4 col-span-8 space-y-4">
           <div>
             <Title> Create Demand</Title>
-            <Subtitle>Search the product you need here. Use tags to find an alternative</Subtitle>
+            <Subtitle>Search the product you need here. Use tags to find any alternative.</Subtitle>
           </div>
           <ProfileTabs />
           <div className="py-6 bg-white shadow-sm rounded">
