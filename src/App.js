@@ -1,7 +1,7 @@
 import ProductDetail from "./components/ProductDetail";
+import ProductDetailsCard from "./components/ProductDetailsCard";
 import Subtitle from "./components/Subtitle";
 import ProfileTabs from "./components/Tabs";
-import TagChip from "./components/TagChip";
 import TagFilter from "./components/TagFilter";
 import Title from "./components/Title";
 
@@ -10,7 +10,7 @@ import { Products } from './data/Products';
 
 function App() {
   return (
-    <div className="flex flex-col justify-start items-center h-screen py-8 bg-gray-100">
+    <div className="flex flex-col justify-start items-center h-auto py-8 bg-gray-100">
       <div className="grid grid-cols-12 gap-0 w-full px-8">
         <div className="col-span-2">
         </div>
@@ -42,37 +42,7 @@ function App() {
           })}
         </div>
         <div className="col-span-2">
-          <div className="flex flex-col mt-36 py-6 bg-white shadow-sm rounded space-y-6">
-            <p className="font-semibold px-4">Product Details</p>
-            <hr />
-            <div className="px-4 space-y-6">
-              <p className="text-sm font-semibold">Product Name</p>
-              <div className="flex space-x-2">
-                <TagChip label={"PDF"} />
-                <TagChip label={"Change"} />
-              </div>
-              <button className="bg-blue-400 px-2 py-1 text-white">Go To Manufacturer</button>
-              <p className="text-sm font-light">Capture any process on your computer screen and quickly create visual instructions.
-                Capture any process on your computer screen and quickly create visual instructions.
-              </p>
-              <div>
-                <label className="flex items-center">
-                  <input className="mr-2 peer" type="radio" id="option" name="drone" value="option1" checked />
-                  <div className="text-sm font-semibold text-gray-400  peer-checked:text-black">Option 1</div></label>
-                <p>
-                  <p className="text-sm font-light">Option Details</p>
-                </p>
-              </div>
-              <div>
-                <label className="flex items-center">
-                  <input className="mr-2 peer" type="radio" id="option" name="drone" value="option1" checked />
-                  <div className="text-sm font-semibold text-gray-400 peer-checked:text-black">Option 2</div></label>
-                <p>
-                  <p className="text-sm font-light">Option Details</p>
-                </p>
-              </div>
-            </div>
-          </div>
+          <ProductDetailsCard />
         </div>
       </div>
     </div>
