@@ -1,36 +1,40 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import TagChip from "./TagChip";
+import { ProductsContext } from '../store/productsContext'
 
 export default function ProductDetailsCard() {
+
+  const productCtx = useContext(ProductsContext);
+  const [product] = useState(productCtx.products.selectedProduct)
+
   return (
     <div className="flex flex-col mt-36 py-6 bg-white shadow-sm rounded space-y-6">
       <p className="font-semibold px-4">Product Details</p>
       <hr />
       <div className="px-4 space-y-6">
-        <p className="text-sm font-semibold">Product Name</p>
-        <div className="flex space-x-2">
-          <TagChip label={"PDF"} />
-          <TagChip label={"Change"} />
+        <p className="text-sm font-semibold">{product.productName}</p>
+        <div className="flex align-center flex-wrap">
+          {product.tags.map((label, index) => {
+            return <TagChip key={index} label={label} />
+          })}
         </div>
         <button className="bg-blue-400 px-2 py-1 text-white">Go To Manufacturer</button>
-        <p className="text-sm font-light">Capture any process on your computer screen and quickly create visual instructions.
-          Capture any process on your computer screen and quickly create visual instructions.
+        <p className="text-sm font-light">
+          {product.description.join('')}
         </p>
-        <div>
+        <div className='space-y-1'>
           <label className="flex items-center">
-            <input className="mr-2 peer" type="radio" id="option" name="drone" value="option1" checked />
-            <div className="text-sm font-semibold text-gray-400  peer-checked:text-black">Option 1</div></label>
-          <p>
-            <p className="text-sm font-light">Option Details</p>
-          </p>
+            <input className="mr-2 peer" type="radio" id="option" name="drone" value="option1" defaultChecked />
+            <div className="text-sm font-semibold text-gray-400  peer-checked:text-black">Option 1</div>
+            </label>
+          <p className="text-sm font-light">{product.option1}</p>
         </div>
-        <div>
+        <div className='space-y-1'>
           <label className="flex items-center">
-            <input className="mr-2 peer" type="radio" id="option" name="drone" value="option1" checked />
-            <div className="text-sm font-semibold text-gray-400 peer-checked:text-black">Option 2</div></label>
-          <p>
-            <p className="text-sm font-light">Option Details</p>
-          </p>
+            <input className="mr-2 peer" type="radio" id="option" name="drone" value="option1" />
+            <div className="text-sm font-semibold text-gray-400 peer-checked:text-black">Option 2</div>
+            </label>
+          <p className="text-sm font-light">{product.option2}</p>
         </div>
       </div>
     </div>

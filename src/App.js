@@ -1,3 +1,4 @@
+import { useContext, useState } from "react";
 import ProductDetail from "./components/ProductDetail";
 import ProductDetailsCard from "./components/ProductDetailsCard";
 import Subtitle from "./components/Subtitle";
@@ -6,9 +7,20 @@ import TagFilter from "./components/TagFilter";
 import Title from "./components/Title";
 
 import { Products } from './data/Products';
+import { ProductsContext } from "./store/productsContext";
 
 
 function App() {
+  const productsCtx = useContext(ProductsContext);
+  const [filteredProducts, setFilteredProducts] = useState(productsCtx.products.filteredProducts);
+  const [showProductDetail, setShowProductDetail] = useState(false);
+  console.log(productsCtx);
+
+  function showDetail(product) {
+    setShowProductDetail(true);
+    productsCtx.setSelectedProduct(product)
+  }
+
   return (
     <div className="flex flex-col justify-start items-center h-auto py-8 bg-gray-100">
       <div className="grid grid-cols-12 gap-0 w-full px-8">
@@ -31,18 +43,20 @@ function App() {
               <TagFilter label="Management Tools" />
             </div>
             <div className="w-full px-4 relative text-gray-600 mt-4">
-              <span class="absolute inset-y-1 left-4 flex items-center pl-2">
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+              <span className="absolute inset-y-1 left-4 flex items-center pl-2">
+                <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" className="w-6 h-6"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
               </span>
-              <input type="search" class="p-1 rounded w-full bg-gray-100 pl-10" placeholder="Type Here..." />
+              <input type="search" className="p-1 rounded w-full bg-gray-100 pl-10" placeholder="Type Here..." />
             </div>
           </div>
-          {Products.map((product) => {
-            return <ProductDetail product={product} />
+          {filteredProducts.map((product, index) => {
+            return <ProductDetail key={index} product={product} showDetail={showDetail} />
           })}
         </div>
         <div className="col-span-2">
-          <ProductDetailsCard />
+          {showProductDetail &&
+            <ProductDetailsCard />
+          }
         </div>
       </div>
     </div>
