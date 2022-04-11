@@ -14,7 +14,6 @@ function App() {
   const productsCtx = useContext(ProductsContext);
   const [filteredProducts, setFilteredProducts] = useState(productsCtx.products.filteredProducts);
   const [showProductDetail, setShowProductDetail] = useState(false);
-  console.log(productsCtx);
 
   function showDetail(product) {
     setShowProductDetail(true);

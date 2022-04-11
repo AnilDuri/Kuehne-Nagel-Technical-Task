@@ -15,9 +15,7 @@ export const ProductsContext = createContext({
 function productsReducer(state, action) {
     switch (action.type) {
         case 'SET_SELECTED_PRODUCT':
-            const updatedState = state;
-            updatedState.selectedProduct = action.payload
-            return updatedState;
+            return {...state, selectedProduct: action.payload};
         default:
             return state;
     }
@@ -28,8 +26,8 @@ function ProductsContextProvider({ children }) {
     const [productsState, dispatch] = useReducer(productsReducer, initialState);
 
     function setSelectedProduct(product) {
-        dispatch({ type: 'SET_SELECTED_PRODUCT', payload: product })
-        console.log('dispatch');
+        dispatch({ type: 'SET_SELECTED_PRODUCT', payload: product });
+        console.log('dispatched')
     }
     // function deleteExpense(id) {
     //     dispatch({ type: 'DELETE', payload: id })
