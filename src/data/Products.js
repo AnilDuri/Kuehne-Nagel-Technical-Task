@@ -70,7 +70,7 @@ export const Products = [
 	{
 		"productName": "ZeroTurnaround JRebel",
 		"tags": [ "Java", "Deployment", "Zeroturnaround", "Xrebel" ],
-		"category": "Developer",
+		"category": "Software Development",
 		"manufacturerUrl": "https://www.jrebel.com/products/jrebel",
 		"description": 
 		[
@@ -82,7 +82,7 @@ export const Products = [
 	{
 		"productName": "JetBrains PhpStorm 2020",
 		"tags": [ "JetBrains", "PhpStorm", "Code", "Database", "Coding", "Renewal" ],
-		"category": "Developer",
+		"category": "Software Development",
 		"manufacturerUrl": "https://www.jetbrains.com/phpstorm",
 		"description": 
 		[
@@ -94,7 +94,7 @@ export const Products = [
 	{
 		"productName": "JetBrain ReSharper Ultimate 2020.x",
 		"tags": [ "JetBrains", "ReSharper", ".NET", "VisiualStudio", "Extension", "Code", "Coding" ],
-		"category": "Developer",
+		"category": "Software Development",
 		"manufacturerUrl": "https://www.jetbrains.com/resharper",
 		"description": 
 		[

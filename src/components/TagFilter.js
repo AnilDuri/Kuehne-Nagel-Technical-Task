@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+
 import { ProductsContext } from '../store/productsContext';
 
 export default function TagFilter({ label }) {
@@ -12,6 +13,7 @@ export default function TagFilter({ label }) {
             productCtx.filterCategories();
         } else {
             productCtx.removeFilterCategory(label);
+            productCtx.filterCategories();
         }
     }
     return (

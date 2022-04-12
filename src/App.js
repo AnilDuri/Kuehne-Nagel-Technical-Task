@@ -1,22 +1,39 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+
 import ProductDetail from "./components/ProductDetail";
 import ProductDetailsCard from "./components/ProductDetailsCard";
 import Subtitle from "./components/Subtitle";
 import ProfileTabs from "./components/Tabs";
 import TagFilter from "./components/TagFilter";
 import Title from "./components/Title";
-
 import { ProductsContext } from "./store/productsContext";
-
 
 function App() {
   const productsCtx = useContext(ProductsContext);
-  const [filteredProducts ] = useState(productsCtx.products.filteredProducts);
   const [showProductDetail, setShowProductDetail] = useState(false);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+
+  useEffect(() => {
+    setFilteredProducts(productsCtx.products.filteredProducts)
+  }, [productsCtx.products.filteredProducts,])
 
   function showDetail(product) {
     setShowProductDetail(true);
     productsCtx.setSelectedProduct(product)
+  }
+
+  function handleInputChange(e) {
+    const searchedProducts = productsCtx.products.filteredProducts.filter((product) => {
+      // create a new object with the name and description of the product
+      const fProduct = {
+        name: product.productName,
+        desc: product.description
+      }
+      const searchThrough = JSON.stringify(Object.values(fProduct).join(" "));
+      console.log(searchThrough);
+      return searchThrough.toLowerCase().includes(e.target.value.toLowerCase())
+    })
+    setFilteredProducts(searchedProducts);
   }
 
   return (
@@ -44,7 +61,7 @@ function App() {
               <span className="absolute inset-y-1 left-4 flex items-center pl-2">
                 <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" className="w-6 h-6"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
               </span>
-              <input type="search" className="p-1 rounded w-full bg-gray-100 pl-10" placeholder="Type Here..." />
+              <input onChange={handleInputChange} type="search" className="p-1 rounded w-full bg-gray-100 pl-10" placeholder="Type Here..." />
             </div>
           </div>
           {filteredProducts.map((product, index) => {

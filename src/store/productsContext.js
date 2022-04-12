@@ -1,4 +1,5 @@
 import { createContext, useReducer } from 'react'
+
 import { Products } from '../data/Products';
 
 const initialState = {
@@ -18,7 +19,13 @@ function productsReducer(state, action) {
         case 'SET_SELECTED_PRODUCT':
             return { ...state, selectedProduct: action.payload };
         case 'FILTER_PRODUCTS':
-            return { ...state, filteredProducts: state.products.filter((product) => state.filteredCategories.indexOf(product) === -1) };
+            if (state.filteredCategories.length === 0) return { ...state, filteredProducts: Products }
+            const filteredProductsList = state.products.filter(
+                (product) => state.filteredCategories.includes(product.category));
+            return {
+                ...state,
+                filteredProducts: filteredProductsList
+            };
         case 'ADD_CATEGORY':
             const updatedFilterCategories = state.filteredCategories;
             updatedFilterCategories.push(action.payload);
@@ -50,22 +57,13 @@ function ProductsContextProvider({ children }) {
         dispatch({ type: 'FILTER_PRODUCTS' });
         console.log(productsState)
     }
-    // function deleteExpense(id) {
-    //     dispatch({ type: 'DELETE', payload: id })
-    // }
-    // function updateExpense(id, expenseData) {
-    //     dispatch({ type: 'UPDATE', payload: { id: id, data: expenseData } })
-    // }
-    // function setExpenses(expenses) {
-    //     dispatch({ type: 'SET', payload: expenses })
-    // }
 
     const value = {
         products: productsState,
         setSelectedProduct: setSelectedProduct,
         addFilterCategory: addFilterCategory,
         removeFilterCategory: removeFilterCategory,
-        filterCategories: filterCategories
+        filterCategories: filterCategories,
     }
 
     return <ProductsContext.Provider value={value} >{children}</ProductsContext.Provider>
