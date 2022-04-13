@@ -41,11 +41,11 @@ function App() {
   }
 
   return (
-    <div className="flex flex-col justify-start items-center h-auto py-8 bg-gray-100">
-      <div className="grid grid-cols-12 gap-0 w-full px-8">
+    <div className="flex flex-col justify-start items-center pt-4 bg-gray-100">
+      <div className="grid grid-cols-12 gap-0 w-full h-screen px-8">
         <div className="col-span-2">
         </div>
-        <div className="p-4 col-span-8 space-y-4">
+        <div className="flex flex-col flex-1 max-h-screen p-4 col-span-8 space-y-4">
           <div>
             <Title> Create Demand</Title>
             <Subtitle>Search the product you need here. Use tags to find any alternative.</Subtitle>
@@ -68,13 +68,15 @@ function App() {
               <input ref={inputRef} onChange={handleInputChange} type="search" className="p-1 rounded w-full bg-gray-100 pl-10" placeholder="Type Here..." />
             </div>
           </div>
-          {filteredProducts.map((product, index) => {
-            return <ProductDetail
-              key={index}
-              product={product}
-              showDetail={showDetail}
-              selectedProductTitle={selectedProductTitle} />
-          })}
+          <div className="flex flex-col overflow-y-scroll max-h-fit space-y-5">
+            {filteredProducts.map((product, index) => {
+              return <ProductDetail
+                key={index}
+                product={product}
+                showDetail={showDetail}
+                selectedProductTitle={selectedProductTitle} />
+            })}
+          </div>
         </div>
         <div className="col-span-2">
           {showProductDetail &&

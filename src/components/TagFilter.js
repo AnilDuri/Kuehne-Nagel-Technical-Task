@@ -17,10 +17,10 @@ export default function TagFilter({ label }) {
         }
     }
     return (
-        <label className="text-sm text-gray-500 flex items-center">
+        <label className="text-xs 2xl:text-sm text-gray-500 flex items-center">
             <input
                 type="checkbox"
-                className="mr-2"
+                className="mr-2 border-2 border-gray-200 "
                 onChange={handleOnChange}
             />
             {label}
