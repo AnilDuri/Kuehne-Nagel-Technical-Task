@@ -13,27 +13,27 @@ export default function ProductDetailsCard() {
       <hr />
       <div className="px-4 space-y-6">
         <p className="text-sm font-semibold">{productCtx.products.selectedProduct.productName}</p>
-        <div className="flex align-center flex-wrap">
+        <div className="flex align-center flex-wrap text-sky-400">
           {productCtx.products.selectedProduct.tags.map((label, index) => {
             return <TagChip key={index} label={label} />
           })}
         </div>
-        <button className="bg-blue-400 px-2 py-1 text-white">Go To Manufacturer</button>
+        <button className="bg-sky-400 px-2 py-1 text-white">Go To Manufacturer</button>
         <p className="text-sm font-light">
           {productCtx.products.selectedProduct.description.join('')}
         </p>
         <div className='space-y-1'>
           <label className="flex items-center">
-            <input className="mr-2 peer" type="radio" id="option" name="drone" value="option1" defaultChecked />
+            <input className="mr-2 peer text-sky-400 " type="radio" id="option" name="drone" value="option1" defaultChecked />
             <div className="text-sm font-semibold text-gray-400  peer-checked:text-black">Option 1</div>
-            </label>
+          </label>
           <p className="text-sm font-light">{productCtx.products.selectedProduct.option1}</p>
         </div>
         <div className='space-y-1'>
           <label className="flex items-center">
-            <input className="mr-2 peer" type="radio" id="option" name="drone" value="option1" />
+            <input className="mr-2 peer text-sky-400" type="radio" id="option" name="drone" value="option1" />
             <div className="text-sm font-semibold text-gray-400 peer-checked:text-black">Option 2</div>
-            </label>
+          </label>
           <p className="text-sm font-light">{productCtx.products.selectedProduct.option2}</p>
         </div>
       </div>

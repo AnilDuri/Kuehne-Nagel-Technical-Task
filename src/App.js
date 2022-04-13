@@ -65,7 +65,7 @@ function App() {
               <span className="absolute inset-y-1 left-4 flex items-center pl-2">
                 <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" className="w-6 h-6"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
               </span>
-              <input ref={inputRef} onChange={handleInputChange} type="search" className="p-1 rounded w-full bg-gray-100 pl-10" placeholder="Type Here..." />
+              <input ref={inputRef} onChange={handleInputChange} type="search" className="p-1 rounded w-full bg-gray-100 pl-10" placeholder="Type here..." />
             </div>
           </div>
           <div className="flex flex-col overflow-y-scroll max-h-fit space-y-5">
