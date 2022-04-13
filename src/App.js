@@ -42,7 +42,7 @@ function App() {
 
   return (
     <div className="flex flex-col justify-start items-center pt-4 bg-gray-100">
-      <div className="grid grid-cols-12 gap-0 w-full h-screen px-8">
+      <div className="grid grid-cols-12 gap-0 w-full h-screen px-2 2xl:px-8">
         <div className="col-span-2">
         </div>
         <div className="flex flex-col flex-1 max-h-screen p-4 col-span-8 space-y-4">
@@ -54,7 +54,7 @@ function App() {
           <div className="py-6 bg-white shadow-sm rounded">
             <p className="font-semibold px-4 mb-6">I'm looking for...</p>
             <hr />
-            <div className="grid grid-cols-5 gap-2 justify-items-center mt-6">
+            <div className="grid grid-cols-5 gap-2 justify-items-start mt-6 px-4">
               <TagFilter label="Software Development" />
               <TagFilter label="Daily Business" />
               <TagFilter label="Graphic Editors" />

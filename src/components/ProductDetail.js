@@ -10,8 +10,8 @@ export default function ProductDetail({ product, showDetail, selectedProductTitl
     }
 
     return (
-        <div onClick={() => showDetail(product)} className={`${selected} p-4 flex justify-between items-center bg-white shadow-sm rounded cursor-pointer`}>
-            <div className="">
+        <div onClick={() => showDetail(product)} className={`${selected} p-4 flex justify-between items-center bg-white shadow-sm rounded cursor-pointer w-full`}>
+            <div className="w-11/12">
                 <p>{product.productName}</p>
                 <div className="flex flex-wrap text-sky-400">{
                     product.tags.map((label, index) => {
@@ -20,7 +20,7 @@ export default function ProductDetail({ product, showDetail, selectedProductTitl
                 }
                 </div>
             </div>
-            <p className=" text-sm text-gray-400">Daily Business</p>
+            <p className="w-1/12 text-sm text-gray-400">Daily Business</p>
         </div>
     )
 }

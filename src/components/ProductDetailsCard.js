@@ -18,21 +18,21 @@ export default function ProductDetailsCard() {
             return <TagChip key={index} label={label} />
           })}
         </div>
-        <button className="bg-sky-400 px-2 py-1 text-white">Go To Manufacturer</button>
+        <button className="bg-sky-400 px-2 py-1 text-white rounded-sm">Go To Manufacturer</button>
         <p className="text-sm font-light">
           {productCtx.products.selectedProduct.description.join('')}
         </p>
         <div className='space-y-1'>
           <label className="flex items-center">
             <input className="mr-2 peer text-sky-400 " type="radio" id="option" name="drone" value="option1" defaultChecked />
-            <div className="text-sm font-semibold text-gray-400  peer-checked:text-black">Option 1</div>
+            <div className="text-sm text-gray-400  peer-checked:text-black">Option 1</div>
           </label>
           <p className="text-sm font-light">{productCtx.products.selectedProduct.option1}</p>
         </div>
         <div className='space-y-1'>
           <label className="flex items-center">
             <input className="mr-2 peer text-sky-400" type="radio" id="option" name="drone" value="option1" />
-            <div className="text-sm font-semibold text-gray-400 peer-checked:text-black">Option 2</div>
+            <div className="text-sm text-gray-400 peer-checked:text-black">Option 2</div>
           </label>
           <p className="text-sm font-light">{productCtx.products.selectedProduct.option2}</p>
         </div>
