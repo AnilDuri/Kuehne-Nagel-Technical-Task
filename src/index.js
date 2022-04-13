@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import ProductsContextProvider from "./store/productsContext";
+import ProductsContextProvider from "./store/products-context";
+
+import './index.css';
 
 ReactDOM.render(
   <ProductsContextProvider>

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
+
+import { ProductsContext } from '../store/products-context'
 import TagChip from "./TagChip";
-import { ProductsContext } from '../store/productsContext'
 
 export default function ProductDetailsCard() {
 

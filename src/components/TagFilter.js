@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 
-import { ProductsContext } from '../store/productsContext';
+import { ProductsContext } from '../store/products-context';
 
 export default function TagFilter({ label }) {
     const productCtx = useContext(ProductsContext);
