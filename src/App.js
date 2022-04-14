@@ -26,6 +26,11 @@ function App() {
     productsCtx.setSelectedProduct(product)
   }
 
+  function closeDetail() {
+    setSelectedProductTitle(null);
+    setShowProductDetail(false);
+  }
+
   function handleInputChange(e) {
     const searchedProducts = productsCtx.products.filteredProducts.filter((product) => {
       // create a new object with the name and description of the product
@@ -87,7 +92,7 @@ function App() {
         </div>
         <div className="col-span-2">
           {showProductDetail &&
-            <ProductDetailsCard />
+            <ProductDetailsCard closeDetail={closeDetail} />
           }
         </div>
       </div>

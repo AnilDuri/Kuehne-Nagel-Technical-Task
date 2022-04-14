@@ -3,7 +3,7 @@ import React, { useContext } from 'react'
 import { ProductsContext } from '../store/products-context'
 import TagChip from "./TagChip";
 
-export default function ProductDetailsCard() {
+export default function ProductDetailsCard({ closeDetail }) {
 
   const productCtx = useContext(ProductsContext);
 
@@ -11,7 +11,7 @@ export default function ProductDetailsCard() {
     <div className="flex flex-col mt-36 py-6 bg-white shadow-sm rounded space-y-6 ">
       <div className='flex items-center justify-between px-4'>
         <p className="font-semibold">Product Details</p>
-        <button className='font-semibold bg-slate-100 px-4 rounded-md'>
+        <button onClick={closeDetail} className='font-semibold bg-slate-100 px-4 rounded-md'>
           X
         </button>
       </div>
