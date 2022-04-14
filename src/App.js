@@ -39,7 +39,6 @@ function App() {
         desc: product.description
       }
       const searchThrough = JSON.stringify(Object.values(fProduct).join(" "));
-      console.log(searchThrough);
       return searchThrough.toLowerCase().includes(e.target.value.toLowerCase())
     })
     setFilteredProducts(searchedProducts);
