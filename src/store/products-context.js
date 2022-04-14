@@ -11,7 +11,10 @@ const initialState = {
 
 export const ProductsContext = createContext({
     products: [],
-    setSelectedProduct: ({ product }) => { }
+    setSelectedProduct: ({ product }) => { },
+    addFilterCategory: ({ product }) => { },
+    removeFilterCategory: ({ product }) => { },
+    filterCategories: ({ product }) => { }
 });
 
 function productsReducer(state, action) {
@@ -29,7 +32,6 @@ function productsReducer(state, action) {
         case 'ADD_CATEGORY':
             const updatedFilterCategories = state.filteredCategories;
             updatedFilterCategories.push(action.payload);
-            console.log(updatedFilterCategories)
             return { ...state, filteredCategories: updatedFilterCategories };
         case 'REMOVE_CATEGORY':
             const updatedCategories = state.filteredCategories;
@@ -45,7 +47,6 @@ function ProductsContextProvider({ children }) {
 
     function setSelectedProduct(product) {
         dispatch({ type: 'SET_SELECTED_PRODUCT', payload: product });
-        console.log('dispatched')
     }
     function addFilterCategory(category) {
         dispatch({ type: 'ADD_CATEGORY', payload: category });
@@ -55,7 +56,6 @@ function ProductsContextProvider({ children }) {
     }
     function filterCategories() {
         dispatch({ type: 'FILTER_PRODUCTS' });
-        console.log(productsState)
     }
 
     const value = {
