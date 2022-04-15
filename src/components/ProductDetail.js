@@ -20,7 +20,7 @@ export default function ProductDetail({ product, showDetail, selectedProductTitl
                 }
                 </div>
             </div>
-            <p className="w-1/12 text-sm text-gray-400">Daily Business</p>
+            <p className="w-1/12 text-sm text-gray-400">{product.category}</p>
         </div>
     )
 }
