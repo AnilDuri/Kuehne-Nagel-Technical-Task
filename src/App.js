@@ -72,22 +72,20 @@ function App() {
               <input ref={inputRef} onChange={handleInputChange} type="search" className="p-1 rounded w-full bg-gray-100 pl-10" placeholder="Type here..." />
             </div>
           </div>
-          <div className="flex flex-col overflow-y-scroll max-h-fit space-y-5">
-            {
-              filteredProducts.length === 0 ? <div className="flex w-full justify-center font-light"><p>No products match your search</p></div> :
-                <>
-                  {
-                    filteredProducts.map((product, index) => {
-                      return <ProductDetail
-                        key={index}
-                        product={product}
-                        showDetail={showDetail}
-                        selectedProductTitle={selectedProductTitle} />
-                    })
-                  }
-                </>
-            }
-          </div>
+          {
+            filteredProducts.length === 0 ? <div className="flex w-full justify-center font-light"><p>No products match your search</p></div> :
+              <div className="flex flex-col overflow-y-scroll max-h-fit space-y-5">
+                {
+                  filteredProducts.map((product, index) => {
+                    return <ProductDetail
+                      key={index}
+                      product={product}
+                      showDetail={showDetail}
+                      selectedProductTitle={selectedProductTitle} />
+                  })
+                }
+              </div>
+          }
         </div>
         <div className="col-span-2">
           {showProductDetail &&
@@ -95,7 +93,7 @@ function App() {
           }
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 
